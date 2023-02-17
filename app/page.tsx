@@ -1,9 +1,20 @@
+"use client";
 /*eslint-disable */
 import { testimonies } from "@/constant/lib";
 import { services } from "@/constant/service";
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const src = document.createElement("script");
+      src.async = true;
+      src.src = "//code.tidio.co/xmshzmi3jwo5rqkxjafpjanqqx3zccni.js";
+      document.body.appendChild(src);
+    }
+  }, []);
+
   return (
     <>
       <Hero />
@@ -111,9 +122,12 @@ const Services = () => {
 const Hero = () => {
   return (
     <header
-      className="h-[70vh] relative"
+      className="h-[80vh] relative"
       style={{
         backgroundImage: "url('/banner.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
       }}
     >
       <section className="absolute left-0 top-0 w-full h-full bg-black/60 p-8">
